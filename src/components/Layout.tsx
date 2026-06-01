@@ -22,10 +22,11 @@ export default function Layout() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-bg-primary/70 flex flex-col relative">
+    <div className="min-h-screen bg-bg-primary flex flex-col relative">
       <GalaxyBackground />
+      <div className="fixed inset-0 z-[1] pointer-events-none bg-gradient-to-b from-bg-primary/40 via-transparent to-bg-primary/40" />
       {/* Header */}
-      <header className="sticky top-0 z-50 bg-bg-primary/80 backdrop-blur-lg border-b border-border">
+      <header className="sticky top-0 z-50 bg-bg-primary/90 backdrop-blur-lg border-b border-border">
         <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3">
             <img src="/logo.png" alt="BA Interview Trainer" className="h-[60px] w-auto" />
@@ -88,7 +89,9 @@ export default function Layout() {
 
       {/* Main content */}
       <main className="flex-1 max-w-6xl mx-auto w-full px-4 py-6">
-        <Outlet />
+        <div className="relative z-10">
+          <Outlet />
+        </div>
       </main>
 
       {/* Footer */}
