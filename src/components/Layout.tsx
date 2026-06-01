@@ -28,12 +28,7 @@ export default function Layout() {
       <header className="sticky top-0 z-50 bg-bg-primary/80 backdrop-blur-lg border-b border-border">
         <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center">
-              <span className="text-white font-bold text-sm">BA</span>
-            </div>
-            <span className="text-text-primary font-semibold text-lg hidden sm:block">
-              BA Interview Trainer
-            </span>
+            <img src="/logo.png" alt="BA Interview Trainer" className="h-9 w-auto" />
           </Link>
 
           {/* Desktop nav */}
