@@ -1,0 +1,110 @@
+[
+  {
+    "id": "module-0",
+    "title": "Входная диагностика",
+    "description": "Определение текущего уровня и грейда",
+    "icon": "clipboard-check",
+    "questionCount": 8,
+    "order": 0,
+    "level": "all"
+  },
+  {
+    "id": "module-1",
+    "title": "Скрининг-интервью (HR)",
+    "description": "HR-вопросы, самопрезентация, мотивация, ожидания по зарплате",
+    "icon": "users",
+    "questionCount": 25,
+    "order": 1,
+    "level": "all"
+  },
+  {
+    "id": "module-2",
+    "title": "Основы BA и стейкхолдеры",
+    "description": "Роль BA, BABOK, типы стейкхолдеров, матрица RACI",
+    "icon": "book-open",
+    "questionCount": 25,
+    "order": 2,
+    "level": "all"
+  },
+  {
+    "id": "module-3",
+    "title": "Сбор и анализ требований",
+    "description": "Методы сбора требований, Elicitation, анализ и валидация",
+    "icon": "search",
+    "questionCount": 25,
+    "order": 3,
+    "level": "all"
+  },
+  {
+    "id": "module-4",
+    "title": "Документирование и артефакты",
+    "description": "User stories, Use cases, BRD, SRS, Acceptance criteria (Gherkin)",
+    "icon": "file-text",
+    "questionCount": 25,
+    "order": 4,
+    "level": "all"
+  },
+  {
+    "id": "module-5",
+    "title": "Моделирование процессов и данных",
+    "description": "BPMN, UML, ERD, Data Flow Diagrams, Event Storming",
+    "icon": "git-branch",
+    "questionCount": 20,
+    "order": 5,
+    "level": "all"
+  },
+  {
+    "id": "module-6",
+    "title": "Методологии (Agile, Waterfall, Hybrid)",
+    "description": "Scrum, Kanban, SAFe, Waterfall, сравнение методологий",
+    "icon": "layout-dashboard",
+    "questionCount": 20,
+    "order": 6,
+    "level": "all"
+  },
+  {
+    "id": "module-7",
+    "title": "Метрики, оценка, приоритизация",
+    "description": "MoSCoW, Kano, WSJF, Story Points, ROI, NPV",
+    "icon": "bar-chart-3",
+    "questionCount": 20,
+    "order": 7,
+    "level": "all"
+  },
+  {
+    "id": "module-8",
+    "title": "Коммуникация и конфликты",
+    "description": "Фасилитация, переговоры, управление ожиданиями, конфликты",
+    "icon": "message-circle",
+    "questionCount": 20,
+    "order": 8,
+    "level": "all"
+  },
+  {
+    "id": "module-9",
+    "title": "Технические аспекты (SQL, API, прототипы)",
+    "description": "SQL-запросы, REST API, JSON, прототипирование, архитектура",
+    "icon": "terminal",
+    "questionCount": 25,
+    "order": 9,
+    "level": "all"
+  },
+  {
+    "id": "module-10",
+    "title": "Реальные кейсы",
+    "description": "Комплексные сценарии J/M/S с полным циклом анализа",
+    "icon": "briefcase",
+    "questionCount": 6,
+    "order": 10,
+    "level": "all"
+  },
+  {
+    "id": "module-11",
+    "title": "Финальный экзамен",
+    "description": "Симуляция собеседования с таймером",
+    "icon": "graduation-cap",
+    "questionCount": 25,
+    "order": 11,
+    "level": "all"
+  }
+]
