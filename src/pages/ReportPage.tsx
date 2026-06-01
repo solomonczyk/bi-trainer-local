@@ -1,9 +1,11 @@
 import { Link } from 'react-router-dom';
-import { ArrowLeft, BarChart3, Award, Target, TrendingUp } from 'lucide-react';
+import { ArrowLeft, BarChart3, Award, Target, TrendingUp, Trash2 } from 'lucide-react';
+import { useState } from 'react';
 import { useProgressStore } from '../store/useProgressStore';
 import modules from '../data/modules.json';
 
 export default function ReportPage() {
+  const [showConfirm, setShowConfirm] = useState(false);
   const answers = useProgressStore((s) => s.answers);
   const diagnosticsResult = useProgressStore((s) => s.diagnosticsResult);
   const examResult = useProgressStore((s) => s.examResult);
@@ -149,6 +151,48 @@ export default function ReportPage() {
           Пока нет данных. Начните отвечать на вопросы!
         </div>
       )}
+
+      {/* Reset progress */}
+      <div className="border-t border-border pt-6 text-center">
+        {showConfirm ? (
+          <div className="p-4 rounded-xl bg-error/5 border border-error/20">
+            <p className="text-text-primary font-medium mb-3">
+              Вы уверены, что хотите сбросить весь прогресс?
+            </p>
+            <p className="text-text-secondary text-sm mb-4">
+              Все ответы, XP, результаты диагностики и экзамена будут удалены. Это действие необратимо.
+            </p>
+            <div className="flex gap-3 justify-center">
+              <button
+                type="button"
+                onClick={() => setShowConfirm(false)}
+                className="px-6 py-2.5 rounded-xl bg-bg-surface border border-border text-text-primary hover:bg-bg-hover transition-all text-sm"
+              >
+                Отмена
+              </button>
+              <button
+                type="button"
+                onClick={() => {
+                  useProgressStore.getState().resetProgress();
+                  setShowConfirm(false);
+                }}
+                className="px-6 py-2.5 rounded-xl bg-error hover:bg-error/80 text-white font-medium transition-all text-sm"
+              >
+                Сбросить всё
+              </button>
+            </div>
+          </div>
+        ) : (
+          <button
+            type="button"
+            onClick={() => setShowConfirm(true)}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg text-text-muted hover:text-error hover:bg-error/5 transition-all text-sm"
+          >
+            <Trash2 size={16} />
+            Сбросить прогресс
+          </button>
+        )}
+      </div>
     </div>
   );
 }
