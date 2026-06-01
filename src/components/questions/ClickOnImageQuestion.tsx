@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react';
+import { useState } from 'react';
 import type { Question } from '../../types/question';
 
 interface ClickOnImageQuestionProps {

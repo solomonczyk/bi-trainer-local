@@ -31,6 +31,7 @@ export default function CheckboxQuestion({
       {options.map((option, idx) => (
         <label
           key={idx}
+          onClick={() => toggle(option)}
           className={`block p-4 rounded-xl border cursor-pointer transition-all duration-200 ${
             selected.includes(option)
               ? 'border-primary bg-primary/5'

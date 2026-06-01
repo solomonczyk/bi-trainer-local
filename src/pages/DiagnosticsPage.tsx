@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { ClipboardCheck, ArrowLeft, ArrowRight } from 'lucide-react';
+import { ClipboardCheck, ArrowLeft } from 'lucide-react';
 import type { Level, Question } from '../types/question';
 import { useProgressStore } from '../store/useProgressStore';
 import QuestionRenderer from '../components/questions/QuestionRenderer';
@@ -142,8 +142,6 @@ function determineLevel(answers: { status: string; level: string }[]): Level {
 
   const seniorPct = countByLevel.S > 0 ? scoreByLevel.S / countByLevel.S : 0;
   const middlePct = countByLevel.M > 0 ? scoreByLevel.M / countByLevel.M : 0;
-  const juniorPct = countByLevel.J > 0 ? scoreByLevel.J / countByLevel.J : 0;
-
   if (seniorPct >= 0.6) return 'S';
   if (middlePct >= 0.6) return 'M';
   return 'J';

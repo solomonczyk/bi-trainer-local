@@ -26,6 +26,7 @@ export default function RadioQuestion({
       {options.map((option, idx) => (
         <label
           key={idx}
+          onClick={() => setSelected(option)}
           className={`block p-4 rounded-xl border cursor-pointer transition-all duration-200 ${
             selected === option
               ? 'border-primary bg-primary/5'

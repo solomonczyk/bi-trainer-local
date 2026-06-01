@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
-import modules from '../data/modules.json';
+import type { Module } from '../types/question';
+import rawModules from '../data/modules.json';
+const modules = rawModules as Module[];
 import ModuleCard from '../components/ModuleCard';
 import { useProgressStore } from '../store/useProgressStore';
 import { ArrowRight, Award, Zap, Target } from 'lucide-react';

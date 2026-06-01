@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback } from 'react';
+import { useState, useRef } from 'react';
 import { Mic, Square, Play, Loader2 } from 'lucide-react';
 import type { Question } from '../../types/question';
 
@@ -21,11 +21,11 @@ export default function AudioRecordQuestion({
 
   const mediaRecorder = useRef<MediaRecorder | null>(null);
   const chunks = useRef<Blob[]>([]);
-  const timerRef = useRef<number>();
+  const timerRef = useRef<ReturnType<typeof setInterval> | undefined>(undefined);
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const streamRef = useRef<MediaStream | null>(null);
 
-  const startRecording = useCallback(async () => {
+  const startRecording = async () => {
     try {
       setError(null);
       const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
@@ -42,33 +42,36 @@ export default function AudioRecordQuestion({
         audioRef.current = new Audio(url);
         audioRef.current.onended = () => setPlaying(false);
         setRecorded(true);
-        onAnswer({ blobUrl: url, duration });
+        const finalDuration = durationRef;
+        onAnswer({ blobUrl: url, duration: finalDuration });
         stream.getTracks().forEach((t) => t.stop());
         streamRef.current = null;
       };
 
       recorder.start();
       setRecording(true);
-      timerRef.current = window.setInterval(() => {
+      timerRef.current = setInterval(() => {
         setDuration((prev) => prev + 1);
       }, 1000);
     } catch (err) {
       setError('Не удалось получить доступ к микрофону');
     }
-  }, [onAnswer, duration]);
+  };
 
-  const stopRecording = useCallback(() => {
+  const durationRef = duration;
+
+  const stopRecording = () => {
     mediaRecorder.current?.stop();
     setRecording(false);
-    clearInterval(timerRef.current);
-  }, []);
+    if (timerRef.current) clearInterval(timerRef.current);
+  };
 
-  const playRecording = useCallback(() => {
+  const playRecording = () => {
     if (audioRef.current) {
       audioRef.current.play();
       setPlaying(true);
     }
-  }, []);
+  };
 
   const formatTime = (sec: number) => {
     const m = Math.floor(sec / 60);

@@ -1,21 +1,24 @@
 import { Link } from 'react-router-dom';
 import type { Module } from '../types/question';
 import ProgressRing from './ProgressRing';
-import * as Icons from 'lucide-react';
+import {
+  ClipboardCheck, Users, BookOpen, Search, FileText, GitBranch,
+  LayoutDashboard, BarChart3, MessageCircle, Terminal, Briefcase, GraduationCap,
+} from 'lucide-react';
 
-const iconMap: Record<string, string> = {
-  'clipboard-check': 'ClipboardCheck',
-  users: 'Users',
-  'book-open': 'BookOpen',
-  search: 'Search',
-  'file-text': 'FileText',
-  'git-branch': 'GitBranch',
-  'layout-dashboard': 'LayoutDashboard',
-  'bar-chart-3': 'BarChart3',
-  'message-circle': 'MessageCircle',
-  terminal: 'Terminal',
-  briefcase: 'Briefcase',
-  'graduation-cap': 'GraduationCap',
+const iconMap: Record<string, React.ReactNode> = {
+  'clipboard-check': <ClipboardCheck size={20} className="text-primary" />,
+  users: <Users size={20} className="text-primary" />,
+  'book-open': <BookOpen size={20} className="text-primary" />,
+  search: <Search size={20} className="text-primary" />,
+  'file-text': <FileText size={20} className="text-primary" />,
+  'git-branch': <GitBranch size={20} className="text-primary" />,
+  'layout-dashboard': <LayoutDashboard size={20} className="text-primary" />,
+  'bar-chart-3': <BarChart3 size={20} className="text-primary" />,
+  'message-circle': <MessageCircle size={20} className="text-primary" />,
+  terminal: <Terminal size={20} className="text-primary" />,
+  briefcase: <Briefcase size={20} className="text-primary" />,
+  'graduation-cap': <GraduationCap size={20} className="text-primary" />,
 };
 
 interface ModuleCardProps {
@@ -25,9 +28,6 @@ interface ModuleCardProps {
 }
 
 export default function ModuleCard({ mod, progress, isDiagnostics }: ModuleCardProps) {
-  const iconName = iconMap[mod.icon] || 'BookOpen';
-  const IconComponent = (Icons as Record<string, React.ComponentType<{ size?: number }>>)[iconName];
-
   const content = (
     <div
       className={`bg-bg-surface rounded-xl border border-border p-5 hover:border-primary/30 hover:bg-bg-hover transition-all duration-300 cursor-pointer group ${
@@ -36,7 +36,7 @@ export default function ModuleCard({ mod, progress, isDiagnostics }: ModuleCardP
     >
       <div className="flex items-start justify-between mb-4">
         <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-          {IconComponent && <IconComponent size={20} className="text-primary" />}
+          {iconMap[mod.icon] || <BookOpen size={20} className="text-primary" />}
         </div>
         <ProgressRing progress={progress} size={56} strokeWidth={5} />
       </div>

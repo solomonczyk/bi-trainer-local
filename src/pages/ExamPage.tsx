@@ -1,6 +1,6 @@
 import { useState, useCallback, useMemo } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
-import { ArrowLeft, Clock, GraduationCap } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { Clock, GraduationCap } from 'lucide-react';
 import questionsData from '../data/questions.json';
 import { useProgressStore } from '../store/useProgressStore';
 import QuestionRenderer from '../components/questions/QuestionRenderer';
