@@ -8,6 +8,7 @@ import {
   X,
 } from 'lucide-react';
 import { useState } from 'react';
+import GalaxyBackground from './GalaxyBackground';
 
 const navItems = [
   { path: '/', icon: Home, label: 'Главная' },
@@ -21,7 +22,8 @@ export default function Layout() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-bg-primary flex flex-col">
+    <div className="min-h-screen bg-bg-primary/70 flex flex-col relative">
+      <GalaxyBackground />
       {/* Header */}
       <header className="sticky top-0 z-50 bg-bg-primary/80 backdrop-blur-lg border-b border-border">
         <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
