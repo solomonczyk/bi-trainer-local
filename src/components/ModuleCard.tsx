@@ -30,7 +30,7 @@ interface ModuleCardProps {
 export default function ModuleCard({ mod, progress, isDiagnostics }: ModuleCardProps) {
   const content = (
     <div
-      className={`bg-bg-surface rounded-xl border border-border p-5 hover:border-primary/30 hover:bg-bg-hover transition-all duration-300 cursor-pointer group ${
+      className={`corner-sweep bg-bg-surface rounded-xl border border-border p-5 hover:border-border-light hover:bg-bg-hover transition-all duration-300 cursor-pointer group ${
         progress === 100 ? 'border-success/20' : ''
       }`}
     >

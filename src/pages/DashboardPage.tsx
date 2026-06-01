@@ -64,7 +64,7 @@ export default function DashboardPage() {
       {!diagnosticsResult && (
         <Link
           to="/diagnostics"
-          className="block p-5 rounded-xl bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/20 hover:border-primary/40 transition-all group"
+          className="corner-sweep block p-5 rounded-xl bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/20 hover:border-primary/40 transition-all group"
         >
           <div className="flex items-center justify-between">
             <div>
