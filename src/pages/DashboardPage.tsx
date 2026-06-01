@@ -102,9 +102,7 @@ export default function DashboardPage() {
       <Link to="/exam" className="corner-sweep block p-6 rounded-xl bg-gradient-to-r from-primary/5 to-secondary/5 border border-primary/20 hover:border-primary/40 transition-all group">
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-4">
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-primary to-secondary flex items-center justify-center">
-              <Target size={24} className="text-white" />
-            </div>
+            <img src="/exam-btn.png" alt="" className="w-12 h-12" />
             <div className="text-left">
               <h3 className="font-semibold text-text-primary">Финальный экзамен</h3>
               <p className="text-sm text-text-secondary mt-0.5">25 вопросов с таймером. Проверьте свои знания!</p>
