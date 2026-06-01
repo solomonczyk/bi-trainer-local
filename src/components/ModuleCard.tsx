@@ -30,7 +30,7 @@ interface ModuleCardProps {
 export default function ModuleCard({ mod, progress, isDiagnostics }: ModuleCardProps) {
   const content = (
     <div
-      className={`corner-sweep bg-bg-surface rounded-xl border border-border p-5 hover:border-border-light hover:bg-bg-hover transition-all duration-300 cursor-pointer group ${
+      className={`corner-sweep h-full bg-bg-surface rounded-xl border border-border p-5 hover:border-border-light hover:bg-bg-hover transition-all duration-300 cursor-pointer group flex flex-col ${
         progress === 100 ? 'border-success/20' : ''
       }`}
     >
@@ -41,7 +41,7 @@ export default function ModuleCard({ mod, progress, isDiagnostics }: ModuleCardP
         <ProgressRing progress={progress} size={56} strokeWidth={5} />
       </div>
       <h3 className="text-text-primary font-semibold text-base mb-1">{mod.title}</h3>
-      <p className="text-text-secondary text-sm leading-relaxed">{mod.description}</p>
+      <p className="text-text-secondary text-sm leading-relaxed flex-1">{mod.description}</p>
       <div className="mt-3 flex items-center gap-2">
         <span className="text-xs text-text-muted">{mod.questionCount} вопросов</span>
         {isDiagnostics && (
@@ -54,8 +54,16 @@ export default function ModuleCard({ mod, progress, isDiagnostics }: ModuleCardP
   );
 
   if (isDiagnostics) {
-    return <Link to="/diagnostics">{content}</Link>;
+    return (
+      <Link to="/diagnostics" className="block h-full">
+        {content}
+      </Link>
+    );
   }
 
-  return <Link to={`/modules/${mod.id}`}>{content}</Link>;
+  return (
+    <Link to={`/modules/${mod.id}`} className="block h-full">
+      {content}
+    </Link>
+  );
 }

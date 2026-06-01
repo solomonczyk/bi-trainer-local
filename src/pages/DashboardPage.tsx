@@ -51,11 +51,11 @@ export default function DashboardPage() {
         ].map(({ label, value, icon: Icon, color }) => (
           <div
             key={label}
-            className="bg-bg-surface rounded-xl border border-border p-4 text-center"
+            className="corner-sweep bg-bg-surface rounded-xl border border-border p-5 text-center"
           >
-            <Icon size={20} className={`${color} mx-auto mb-2`} />
-            <p className="text-2xl font-bold text-text-primary">{value}</p>
-            <p className="text-xs text-text-secondary mt-1">{label}</p>
+            <Icon size={24} className={`${color} mx-auto mb-2`} />
+            <p className="text-2xl font-bold text-text-primary leading-tight">{value}</p>
+            <p className="text-xs text-text-secondary mt-1.5">{label}</p>
           </div>
         ))}
       </div>
@@ -86,7 +86,7 @@ export default function DashboardPage() {
       {/* Module grid */}
       <section>
         <h2 className="text-xl font-semibold text-text-primary mb-4">Модули</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-fr">
           <ModuleCard
             mod={modules[0]}
             progress={getModuleProgress('module-0')}
@@ -99,16 +99,20 @@ export default function DashboardPage() {
       </section>
 
       {/* Final exam CTA */}
-      <section className="text-center py-6">
-        <Link
-          to="/exam"
-          className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-gradient-to-r from-primary to-secondary text-white font-semibold hover:opacity-90 transition-all active:scale-[0.98]"
-        >
-          <Target size={20} />
-          Финальный экзамен
-        </Link>
-        <p className="text-text-muted text-sm mt-2">25 вопросов, таймер, все форматы</p>
-      </section>
+      <Link to="/exam" className="corner-sweep block p-6 rounded-xl bg-gradient-to-r from-primary/5 to-secondary/5 border border-primary/20 hover:border-primary/40 transition-all group">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-4">
+            <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-primary to-secondary flex items-center justify-center">
+              <Target size={24} className="text-white" />
+            </div>
+            <div className="text-left">
+              <h3 className="font-semibold text-text-primary">Финальный экзамен</h3>
+              <p className="text-sm text-text-secondary mt-0.5">25 вопросов с таймером. Проверьте свои знания!</p>
+            </div>
+          </div>
+          <ArrowRight size={20} className="text-primary group-hover:translate-x-1 transition-transform flex-shrink-0" />
+        </div>
+      </Link>
     </div>
   );
 }
