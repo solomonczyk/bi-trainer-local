@@ -28,7 +28,7 @@ export default function Layout() {
       <header className="sticky top-0 z-50 bg-bg-primary/80 backdrop-blur-lg border-b border-border">
         <div className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
           <Link to="/" className="flex items-center gap-3">
-            <img src="/logo.png" alt="BA Interview Trainer" className="h-11 w-auto" />
+            <img src="/logo.png" alt="BA Interview Trainer" className="h-[60px] w-auto" />
           </Link>
 
           {/* Desktop nav */}
